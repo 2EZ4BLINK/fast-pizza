@@ -9,5 +9,5 @@ export { loader as orderLoader } from "./order/Order";
 export { default as CreateOrder } from "./order/CreateOrder";
 export { action as createOrderAction } from "./order/CreateOrder";
 
-export { default as User } from "./user/CreateUser";
+export { default as CreateUser } from "./user/CreateUser";
 export { default as Username } from "./user/Username";
