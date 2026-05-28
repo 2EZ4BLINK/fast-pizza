@@ -7,5 +7,6 @@ export { loader as menuLoader } from "./menu/Menu";
 export { default as Order } from "./order/Order";
 export { loader as orderLoader } from "./order/Order";
 export { default as CreateOrder } from "./order/CreateOrder";
+export { action as createOrderAction } from "./order/CreateOrder";
 
 export { default as User } from "./user/CreateUser";

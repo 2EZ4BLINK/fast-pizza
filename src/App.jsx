@@ -8,6 +8,7 @@ import {
   Menu,
   menuLoader,
   Order,
+  createOrderAction,
 } from "./features";
 
 import AppLayout from "./ui/AppLayout";
@@ -40,6 +41,7 @@ const router = createBrowserRouter([
       {
         path: "/order/new",
         element: <CreateOrder />,
+        action: createOrderAction,
       },
       {
         path: "/order/:orderId",
