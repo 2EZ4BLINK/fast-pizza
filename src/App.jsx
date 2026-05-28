@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       {
         path: "/menu",
         element: <Menu />,
-        loader: menuLoader,
+        loader: menuLoader, // When you want to fetch data before the rendering of page
         errorElement: <Error />,
       },
       {
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
       {
         path: "/order/new",
         element: <CreateOrder />,
-        action: createOrderAction,
+        action: createOrderAction, // runs when a form is submitted, Usually returns a response or redirect
       },
       {
         path: "/order/:orderId",
