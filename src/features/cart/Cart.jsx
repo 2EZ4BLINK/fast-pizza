@@ -2,6 +2,7 @@ import { LinkButton, Button } from "../../ui";
 import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 import { useGetName } from "../../features/user/userSlice";
+import { useGetCartItem } from "./cartSlice";
 
 const fakeCart = [
   {
@@ -28,8 +29,8 @@ const fakeCart = [
 ];
 
 function Cart() {
-  const cart = fakeCart;
   const username = useGetName();
+  const cart = useGetCartItem();
 
   return (
     <div className="px-4 py-3">
