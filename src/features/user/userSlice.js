@@ -20,7 +20,6 @@
 //   return { position, address };
 // }
 import { createSlice } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
 
 const initialState = {
   username: "",
@@ -36,10 +35,8 @@ const userSlice = createSlice({
   },
 });
 
-export const { updateName } = userSlice.actions;
+export const getName = ({ user }) => user.username;
 
-export const useGetName = () => {
-  return useSelector(({ user }) => user.username);
-};
+export const { updateName } = userSlice.actions;
 
 export default userSlice.reducer;

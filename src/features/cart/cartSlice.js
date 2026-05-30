@@ -1,16 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
 
 const initialState = {
-  cart: [
-    {
-      pizzaId: 12,
-      name: "Mediterranean",
-      quantity: 1,
-      unitPrice: 16,
-      totalPrice: 32,
-    },
-  ],
+  cart: [],
 };
 
 const cartSlice = createSlice({
@@ -21,7 +12,7 @@ const cartSlice = createSlice({
       state.cart.push(action.payload);
     },
     deleteItem(state, action) {
-      state.cart.filter((i) => i.pizzaId !== action.payload);
+      state.cart = state.cart.filter((i) => i.pizzaId !== action.payload);
     },
     increaseItemQuantity(state, action) {
       const item = state.cart.find((i) => i.pizzaId === action.payload);
@@ -49,8 +40,12 @@ export const {
   clearCart,
 } = cartSlice.actions;
 
-export const useGetCartItem = () => {
-  return useSelector(({ cart }) => cart.cart);
-};
+export const getCart = (state) => state.cart.cart;
+
+export const getTotalCartQuantity = (state) =>
+  state.cart.cart.reduce((acc, cur) => acc + cur.quantity, 0);
+
+export const getTotalCartPrice = (state) =>
+  state.cart.cart.reduce((acc, cur) => acc + cur.totalPrice, 0);
 
 export default cartSlice.reducer;
