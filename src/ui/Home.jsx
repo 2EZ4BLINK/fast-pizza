@@ -1,6 +1,10 @@
 import { CreateUser } from "../features";
+import { useGetName } from "../features/user/userSlice";
+import Button from "./Button";
 
 function Home() {
+  const username = useGetName();
+
   return (
     <div className="my-10 px-4 text-center sm:my-16">
       <h1 className="mb-8 text-xl font-semibold md:text-3xl">
@@ -11,7 +15,13 @@ function Home() {
         </span>
       </h1>
 
-      <CreateUser />
+      {username ? (
+        <Button to="/menu" type="primary">
+          Continue ordering, {username}
+        </Button>
+      ) : (
+        <CreateUser />
+      )}
     </div>
   );
 }
